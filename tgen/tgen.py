@@ -85,7 +85,7 @@ def tgen(trace='fb2010.txt', output='newtrace.txt', nhost=32, target_load=0.8):
                                                                                                 simtime / 1000, flow_id)
 
 
-def filler(input='newtrace.txt', input_load=0.2, simtime=3600, output='filled.txt', target_load=0.8, nhost=32):
+def filler(input='newtrace.txt', input_load=0.2, simtime=3600, output='filled.txt', target_load=0.8, nhost=320):
     additional_load = (target_load - input_load) * nhost  # Gbps
     additional_size = additional_load * simtime
     # flow_number = random.randint(1000, 10000)
@@ -112,15 +112,15 @@ def decomp(i, maxsize=1000):
 
 
 if __name__ == "__main__":
-    tgen(output='load20host32MR.txt', target_load=0.2)
-    tgen(output='load40host32MR.txt', target_load=0.4)
-    tgen(output='load60host32MR.txt', target_load=0.6)
-    tgen(output='load80host32MR.txt', target_load=0.8)
-    filler(input='load20host32MR.txt', input_load=0.2, output='mr20load40.txt', target_load=0.4)
-    filler(input='load20host32MR.txt', input_load=0.2, output='mr20load60.txt', target_load=0.6)
-    filler(input='load20host32MR.txt', input_load=0.2, output='mr20load80.txt', target_load=0.8)
-    filler(input='load40host32MR.txt', input_load=0.4, output='mr40load60.txt', target_load=0.6)
-    filler(input='load40host32MR.txt', input_load=0.4, output='mr40load80.txt', target_load=0.8)
-    filler(input='load60host32MR.txt', input_load=0.6, output='mr60load80.txt', target_load=0.8)
+    tgen(output='load20host120MR.txt', nhost=120, target_load=0.2)
+    tgen(output='load40host120MR.txt', nhost=120, target_load=0.4)
+    tgen(output='load60host120MR.txt', nhost=120, target_load=0.6)
+    tgen(output='load80host120MR.txt', nhost=120, target_load=0.8)
+    filler(input='load20host120MR.txt', input_load=0.2, output='mr20load40.txt', target_load=0.4)
+    filler(input='load20host120MR.txt', input_load=0.2, output='mr20load60.txt', target_load=0.6)
+    filler(input='load20host120MR.txt', input_load=0.2, output='mr20load80.txt', target_load=0.8)
+    filler(input='load40host120MR.txt', input_load=0.4, output='mr40load60.txt', target_load=0.6)
+    filler(input='load40host120MR.txt', input_load=0.4, output='mr40load80.txt', target_load=0.8)
+    filler(input='load60host120MR.txt', input_load=0.6, output='mr60load80.txt', target_load=0.8)
 
 
